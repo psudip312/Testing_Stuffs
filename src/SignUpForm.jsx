@@ -25,11 +25,9 @@ const validationSchema = yup.object().shape({
   birthday: yup.string().required("Birthday is required"),
   gender: yup.string().required("Gender is required"),
 });
-console.log(values);
 const SignUpForm = () => {
   const handleFormSubmit = (values, { setSubmitting }) => {
     // Handle form submission logic here
-    console.log(values);
     setSubmitting(false);
   };
 
