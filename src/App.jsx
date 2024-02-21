@@ -5,6 +5,10 @@ import "./App.css";
 import RegistrationForm from "./RegistrationForm";
 import SignUpForm from "./SignUpForm";
 import Pagination from "./pagination/Pagination";
+import HeroSection1 from "./comoponents/HeroSection1";
+import Navbar from "./comoponents/Navbar";
+import Child1 from "./comoponents/Child1";
+import { useSelector } from "react-redux";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,24 +31,35 @@ function App() {
     4: "Content for Page 4",
     5: "Content for Page 5",
   };
+  // <div>
+  //   <h1>Example</h1>
+  //   <div>
+  //     {/* Display content for the current page */}
+  //     <p>{pageContent[currentPage]}</p>
+
+  //     {/* Pagination Component */}
+  //     <Pagination
+  //       currentPage={currentPage}
+  //       onPageChange={onPageChange}
+  //       isNextDisabled={isNextDisabled}
+  //     />
+  //   </div>
+  // </div>
+  // <SignUpForm />
+  // <HeroSection1 />
+  // <Navbar />
+
+  const [val, setValue] = useState(1);
+  const data = useSelector((c) => {
+    return c.show.value;
+  });
 
   return (
     <>
-      <div>
-        <h1>Example</h1>
-        <div>
-          {/* Display content for the current page */}
-          <p>{pageContent[currentPage]}</p>
-
-          {/* Pagination Component */}
-          <Pagination
-            currentPage={currentPage}
-            onPageChange={onPageChange}
-            isNextDisabled={isNextDisabled}
-          />
-        </div>
+      <div className="App">
+        <h1>App-{data}</h1>
+        <Child1 value={val} />
       </div>
-      <SignUpForm />
     </>
   );
 }
